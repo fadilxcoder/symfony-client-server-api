@@ -7,7 +7,10 @@
 - - `php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity` - asks Doctrine to introspect the database and generate new PHP classes with annotation metadata into `src/Entity`.
 - - `php bin/console make:entity --regenerate App` - generates getter/setter methods for all Entities
 - - Maker bundle : `composer require symfony/maker-bundle --dev`
+- Install debugging tools
+- - `composer req symfony/web-profiler-bundle` and `composer require profiler --dev`
+- 
 
 # Dev
 
-- ` @ApiResource()` in *Testimonials.php*
+- ` @ApiResource()` with data added in *Testimonials.php*
