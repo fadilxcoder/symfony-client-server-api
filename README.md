@@ -1,6 +1,6 @@
 # Notes
 
-- PROJ : http://api.symfony.car-rental.local/
+- PROJ : http://api.symfony.car-rental.local/api
 
 - Regenerate **Entity** from an existing database by :
 - https://symfony.com/doc/current/doctrine/reverse_engineering.html (How to Generate Entities from an Existing Database)
