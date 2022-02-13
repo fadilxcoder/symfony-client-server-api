@@ -14,3 +14,13 @@
 # Dev
 
 - ` @ApiResource()` with data added in *Testimonials.php*
+
+# JWT
+
+- Install `composer require lexik/jwt-authentication-bundle`
+- Use *cygwin*
+- - `mkdir -p config/jwt`
+- - `openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096`
+- - `openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout`
+- **Car Rental API** postman collection name
+- **Car Rental API ENV** postman environment for dynamicall save email as variable & token for futur queries
