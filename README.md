@@ -24,3 +24,9 @@
 - - `openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout`
 - **Car Rental API** postman collection name
 - **Car Rental API ENV** postman environment for dynamicall save email as variable & token for futur queries
+
+# HTTP Client
+
+- Install `composer require symfony/http-client`
+- Code in `RandomUserController.php`
+- Add ACL in `security.yaml`
