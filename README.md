@@ -17,11 +17,30 @@ services:
 api_platform:
     name_converter: 'Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter'
 ```
+- ESX
+- - Installation : `composer require elasticsearch/elasticsearch` -> `composer require elasticsearch/elasticsearch:^7.10` (Compatible with Bonsai)
+- OpenApi
+- - File `src\OpenApi\OpenApiFactory.php`
+- - Register in `services.yaml`
+```
+services:
+    App\OpenApi\OpenApiFactory:
+        decorates: 'api_platform.openapi.factory'
+        arguments: ['@App\OpenApi\OpenApiFactory.inner']
+        autoconfigure: false
+```
+- - Using annotation
+```
+"openapi_context"={
+     "summary"="hidden"
+}
+```
 
 # Docs
 
 - https://github.com/teohhanhui/api-platform-docs/blob/master/core/swagger.md **OpenAPI Specification Support (formerly Swagger)**
 - https://api-platform.com/docs/core/configuration/ **API Platform Configuration**
+- https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/index.html **Elasticsearch PHP Client 7.17**
 
 # Addons
 

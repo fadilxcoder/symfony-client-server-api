@@ -24,3 +24,12 @@ services:
     # please note that last definitions always *replace* previous ones
 
     'Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter': ~
+
+    App\Services\ElasticSearch:
+        arguments:
+            $connection: '%env(ESX_CONNECTION)%'
+
+    App\OpenApi\OpenApiFactory:
+        decorates: 'api_platform.openapi.factory'
+        arguments: [ '@App\OpenApi\OpenApiFactory.inner' ]
+        autoconfigure: false

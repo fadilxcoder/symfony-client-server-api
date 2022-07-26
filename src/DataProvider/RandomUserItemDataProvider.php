@@ -4,11 +4,8 @@ namespace App\DataProvider;
 
 use ApiPlatform\Core\DataProvider\ItemDataProviderInterface;
 use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
-use ApiPlatform\Core\Exception\ResourceClassNotSupportedException;
 use App\ApiResources\FakeUser;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-
 
 class RandomUserItemDataProvider implements ItemDataProviderInterface, RestrictedDataProviderInterface
 {
@@ -32,16 +29,8 @@ class RandomUserItemDataProvider implements ItemDataProviderInterface, Restricte
         $content = $response->toArray();
         $content = $content['data'];
 
-        $fakeUser =  new FakeUser();
-        $fakeUser->setId($id)
-            ->setEmail($content['email'])
-            ->setFirstName($content['first_name'])
-            ->setLastName($content['last_name'])
-        ;
-
-        return $fakeUser;
+        return new FakeUser($id, $content['email'], $content['first_name'], $content['last_name']);
     }
-
 
     public function supports(string $resourceClass, string $operationName = null, array $context = []): bool
     {
