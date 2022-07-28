@@ -9,4 +9,8 @@ api_platform:
     version: '1.0.0'
     swagger:
         versions: [3]
+        api_keys:
+            Client Token Value:
+                name: client-token
+                type: header
     name_converter: 'Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter'

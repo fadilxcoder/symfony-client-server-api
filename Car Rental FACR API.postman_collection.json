@@ -119,6 +119,21 @@
 			"response": []
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "client-token",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "bb85f455b2d4144fd7ace5e060a75ada",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
