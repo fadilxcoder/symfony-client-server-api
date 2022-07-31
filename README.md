@@ -36,7 +36,7 @@ services:
 }
 ```
 - Verify token in header with event subscriber
-- - Command : ` php bin/console generate-client-token`
+- - Command : `php bin/console generate-client-token`
 - - Add `client-token` with value generated from CLI in header
 - Swagger UI header verification config : `config/packages/api_platform.yaml`
 
@@ -46,6 +46,7 @@ services:
 - https://api-platform.com/docs/core/configuration/ **API Platform Configuration**
 - https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/index.html **Elasticsearch PHP Client 7.17**
 - https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/HttpFoundation/Response.php **HTTP Response Code**
+- https://symfony.com/doc/current/doctrine.html **Databases and the Doctrine ORM**
 
 # Addons
 

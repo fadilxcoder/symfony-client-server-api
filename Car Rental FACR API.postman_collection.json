@@ -61,6 +61,117 @@
 			"response": []
 		},
 		{
+			"name": "api/vehicles?category={text}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/vehicles?category=small-cars",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "small-cars"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicle/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/vehicle/1",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"vehicle",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "api/esx-user?email={email}",
 			"event": [
 				{

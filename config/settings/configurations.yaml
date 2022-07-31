@@ -1,0 +1,6 @@
+parameters:
+    vehicles_type:
+        "small-cars" : 1
+        "family-cars" : 2
+        "suv-cars" : 3
+    vehicle_image_url: 'http://firstautocarrental.local/images/booking/{name}'
