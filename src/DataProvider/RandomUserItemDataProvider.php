@@ -24,8 +24,8 @@ class RandomUserItemDataProvider implements ItemDataProviderInterface, Restricte
 
     public function getItem(string $resourceClass, $id, string $operationName = null, array $context = [])
     {
-        $response = $this->client->request('GET', $this->url . $id);
-        # $content = $response->getContent();
+        $response = $this->client->request('GET', $this->url.$id);
+        // $content = $response->getContent();
         $content = $response->toArray();
         $content = $content['data'];
 

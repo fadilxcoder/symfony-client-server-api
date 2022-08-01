@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use Elasticsearch\ClientBuilder;
 use Elasticsearch\Client;
+use Elasticsearch\ClientBuilder;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ElasticSearch
@@ -24,23 +24,22 @@ class ElasticSearch
 
     public function search(string $email)
     {
-
         $params = [
             'size' => 100,
             'index' => 'faker',
-            'body'  => [
+            'body' => [
                 'query' => [
                     'match' => [
-                        'email' => $email
-                    ]
-                ]
-            ]
+                        'email' => $email,
+                    ],
+                ],
+            ],
         ];
 
         $response = $this->init()->search($params);
         $result = $response['hits']['hits'];
 
-        if (count($result) === 0) {
+        if (0 === count($result)) {
             throw new NotFoundHttpException('No result found !');
         }
 

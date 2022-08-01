@@ -19,14 +19,14 @@ class ClientVerifierSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(RequestEvent $event)
     {
-        if (!stripos($event->getRequest()->getRequestUri(), "api")) {
+        if (!stripos($event->getRequest()->getRequestUri(), 'api')) {
             return;
         }
 
         if (null === $event->getRequest()->headers->get('client-token')) {
             $event->setResponse(new JsonResponse([
                 'error' => Response::HTTP_FORBIDDEN,
-                'error_description' => 'client-token missing !'
+                'error_description' => 'client-token missing !',
             ], Response::HTTP_FORBIDDEN));
 
             return;
@@ -35,7 +35,7 @@ class ClientVerifierSubscriber implements EventSubscriberInterface
         if ($event->getRequest()->headers->get('client-token') !== $this->securityToken->getToken()) {
             $event->setResponse(new JsonResponse([
                 'error' => Response::HTTP_UNAUTHORIZED,
-                'error_description' => 'Invalid client-token !'
+                'error_description' => 'Invalid client-token !',
             ], Response::HTTP_UNAUTHORIZED));
         }
     }

@@ -13,7 +13,6 @@ class VehiculesRepository
         $this->entityManager = $entityManager;
     }
 
-
     public function findByCategoryId(int $id)
     {
         $cnx = $this->entityManager->getConnection();
@@ -25,7 +24,7 @@ class VehiculesRepository
 
         $stmt = $cnx->prepare($sql);
         $results = $stmt->executeQuery([
-            'vc' => $id
+            'vc' => $id,
         ]);
 
         return $results->fetchAllAssociative();
@@ -42,7 +41,7 @@ class VehiculesRepository
 
         $stmt = $cnx->prepare($sql);
         $result = $stmt->executeQuery([
-            'id' => $id
+            'id' => $id,
         ]);
 
         return $result->fetchAssociative();

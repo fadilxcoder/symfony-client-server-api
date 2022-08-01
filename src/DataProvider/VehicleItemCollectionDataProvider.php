@@ -13,7 +13,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class VehicleItemCollectionDataProvider implements ItemDataProviderInterface, ContextAwareCollectionDataProviderInterface, RestrictedDataProviderInterface
 {
-    private $vehiculesRepository, $parameterBag;
+    private $vehiculesRepository;
+    private $parameterBag;
 
     public function __construct(VehiculesRepository $vehiculesRepository, ParameterBagInterface $parameterBag)
     {

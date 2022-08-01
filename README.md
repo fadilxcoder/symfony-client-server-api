@@ -39,6 +39,11 @@ services:
 - - Command : `php bin/console generate-client-token`
 - - Add `client-token` with value generated from CLI in header
 - Swagger UI header verification config : `config/packages/api_platform.yaml`
+- **PHPCS Fixer**
+- - Install `composer require friendsofphp/php-cs-fixer`
+- - Create `.php-cs-fixer.dist.php` if not present
+- - RUN `./vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php-cs-fixer.dist.php src` : List all issues in code
+- - RUN `./vendor/bin/php-cs-fixer fix --verbose --config=.php-cs-fixer.dist.php src` : Fix all issues
 
 # Docs
 

@@ -32,7 +32,7 @@ class EsxUserCollectionDataProvider implements ContextAwareCollectionDataProvide
                 $esxUser['email'],
                 $esxUser['address'],
                 $esxUser['description']
-            )
+            ),
         ];
     }
 

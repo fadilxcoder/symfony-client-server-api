@@ -25,7 +25,7 @@ class OpenApiFactory implements OpenApiFactoryInterface
         /** @var PathItem $path */
         foreach ($openApi->getPaths()->getPaths() as $key => $path) {
             // Hidding endpoint in Swagger UI
-            if ($path->getGet() && $path->getGet()->getSummary() === 'hidden') {
+            if ($path->getGet() && 'hidden' === $path->getGet()->getSummary()) {
                 $openApi->getPaths()->addPath($key, $path->withGet(null));
             }
         }
