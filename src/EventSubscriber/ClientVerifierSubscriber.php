@@ -19,6 +19,11 @@ class ClientVerifierSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(RequestEvent $event)
     {
+        // Excluding SF profiler for token verifier
+        if (stripos($event->getRequest()->getRequestUri(), '_profiler')) {
+            return;
+        }
+
         if (!stripos($event->getRequest()->getRequestUri(), 'api')) {
             return;
         }

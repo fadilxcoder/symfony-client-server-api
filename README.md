@@ -44,6 +44,61 @@ services:
 - - Create `.php-cs-fixer.dist.php` if not present
 - - RUN `./vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php-cs-fixer.dist.php src` : List all issues in code
 - - RUN `./vendor/bin/php-cs-fixer fix --verbose --config=.php-cs-fixer.dist.php src` : Fix all issues
+- POST / PUT for complex object schema
+```
+ *      collectionOperations={
+ *          "post_contact": {
+ *              "route_name"="",
+ *              "path"="",
+ *              "method"="",
+ *              "openapi_context"={
+ *                  "summary"="",
+ *                  "description"="",
+ *                  "requestBody": {
+ *                      "content": {
+ *                          "application/json": {
+ *                              "schema": {
+ *                                  "type": "object",
+ *                                  "properties": {
+ *                                      "email": {"type": "string", "example": "owner@email.com"},
+ *                                      "name": {"type": "string", "example": "FX Inc."},
+ *                                      "address": {"type": "string", "example": "123 Rue Jkl Collorado", "nullable": true},
+ *                                      "address_junction": {
+ *                                          "type": "array",
+ *                                          "nullable": true,
+ *                                          "items": {
+ *                                              "type":"string", "example":"96KB", "nullable": true
+ *                                          }
+ *                                       },
+ *                                      "address_city": {"type": "string", "example": "Sillicon Valley", "nullable": true},
+ *                                      "phone": {"type": "string", "example": "05 04 03 02 01" ,"nullable": true},
+ *                                      "type": {"type": "string", "example": "1-2-3", "nullable": true, "enum": {"1-2-3", "4-5", "other", "player-1", "multi-player"}},
+ *                                      "any_date": {"type": "string", "example": "2025-01-01", "nullable": true},
+ *                                      "levels": {"type": "integer", "example": 100, "nullable": true},
+ *                                      "contacts": {
+ *                                          "type": "array",
+ *                                          "nullable": true,
+ *                                          "items": {
+ *                                              "type":"object",
+ *                                              "properties": {
+ *                                                  "firstname": {"type": "string", "example": "John", "nullable": true},
+ *                                                  "lastname": {"type": "string", "example": "Doe", "nullable": true},
+ *                                                  "phone": {"type": "string", "example": "02 04 02 05 01", "nullable": true},
+ *                                                  "email": {"type": "string", "example": "contact@email.com", "nullable": true},
+ *                                              }
+ *                                          }
+ *                                      },
+ *                                      "comment": {"type": "string", "example": "Commentaire en cours !", "nullable": true},
+ *                                  },
+ *                              },
+ *                          },
+ *                      },
+ *                  },
+ *              }
+ *          }
+ *     },
+```
+- **POST** `/contact-us` : Customized JSON body in `src/ApiResources/Contact.php` and Controller `src/Controller/Contact/CreateContactController.php` persisting contact in DB
 
 # Docs
 
