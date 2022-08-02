@@ -108,6 +108,16 @@ services:
 - https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/HttpFoundation/Response.php **HTTP Response Code**
 - https://symfony.com/doc/current/doctrine.html **Databases and the Doctrine ORM**
 
+# Tests
+
+- **PHPUnit**
+- Install `composer require phpunit/phpunit` and `composer req symfony/phpunit-bridge`
+- Configuration for deprecated logs on console `SYMFONY_DEPRECATIONS_HELPER`
+- List of tests
+- - `php bin/phpunit --filter ElasticSearchTest`
+- - `php bin/phpunit --filter EsxUserTest`
+- - `php bin/phpunit`
+
 # Addons
 
 ### Reverse engineering entities
