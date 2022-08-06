@@ -8,6 +8,29 @@
 	},
 	"item": [
 		{
+			"name": "/oauth-client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\": \"Atl45_cNn_007\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}oauth-client",
+					"host": [
+						"{{BASE_URL}}oauth-client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "api/user/{id}",
 			"event": [
 				{

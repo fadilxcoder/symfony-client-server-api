@@ -28,6 +28,46 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *                      }
  *                  }
  *              }
+ *          },
+ *          "post_rental_quote"={
+ *              "path"="vehicle/rental-quote/{id}",
+ *              "method"="POST",
+ *              "status"=200,
+ *              "openapi_context"={
+ *                  "summary"="Creates a contact us resource.",
+ *                  "description"="It creates a contact us resource.",
+ *                  "requestBody": {
+ *                      "content": {
+ *                          "application/json": {
+ *                              "schema": {
+ *                                  "type": "object",
+ *                                  "properties": {
+ *                                      "a": {"type": "string", "example": "John Doe"}
+ *                                  },
+ *                              },
+ *                          },
+ *                      },
+ *                  },
+ *                  "responses": {
+ *                      "200": {
+ *                          "description": "Description",
+ *                          "content": {
+ *                              "application/json": {
+ *                                  "schema": {
+ *                                      "type": "object",
+ *                                      "properties": {
+ *                                          "b": {"type": "string", "example": "John Doe"}
+ *                                      },
+ *                                  },
+ *                              },
+ *                          },
+ *                      },
+ *                  },
+ *              }
+ *          },
+ *          "post_book_now"={
+ *              "path"="vehicle/book-now/{id}",
+ *              "method"="POST"
  *          }
  *     },
  *     itemOperations={

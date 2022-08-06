@@ -108,6 +108,8 @@ services:
 - https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/HttpFoundation/Response.php **HTTP Response Code**
 - https://symfony.com/doc/current/doctrine.html **Databases and the Doctrine ORM**
 - https://api-platform.com/docs/core/jwt/ **JWT Authentication / Swagger manipulation**
+- https://swagger.io/docs/specification/describing-responses/ **Describing Responses**
+- https://swagger.io/docs/specification/describing-request-body/ **Describing Request Body**
 
 # Tests
 
