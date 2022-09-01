@@ -121,6 +121,9 @@ services:
 - - `php bin/phpunit --filter ElasticSearchTest`
 - - `php bin/phpunit --filter EsxUserTest`
 - - `php bin/phpunit`
+- **EndToEnd testing**
+- Install `composer require symfony/test-pack`
+- - ` php bin/phpunit ./tests/EndToEnd/`
 
 # Addons
 
