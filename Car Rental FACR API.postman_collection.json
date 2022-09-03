@@ -89,6 +89,58 @@
 			"response": []
 		},
 		{
+			"name": "api/redis-user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/redis-user",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"redis-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "api/user/{id}",
 			"event": [
 				{
