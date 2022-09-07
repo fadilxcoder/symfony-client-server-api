@@ -100,6 +100,19 @@ services:
 ```
 - **POST** `/contact-us` : Customized JSON body in `src/ApiResources/Contact.php` and Controller `src/Controller/Contact/CreateContactController.php` persisting contact in DB
 
+## Logs
+
+- Install `composer require symfony/monolog-bundle`
+- Add to `monoglog.yaml`
+```
+api_log:
+    type: stream
+    path: "%kernel.logs_dir%/api.log"
+    level: info
+    channels: [ "api_log_channel" ]
+```
+- `onKernelTerminate` event subscriber to log information
+
 # Docs
 
 - https://github.com/teohhanhui/api-platform-docs/blob/master/core/swagger.md **OpenAPI Specification Support (formerly Swagger)**
