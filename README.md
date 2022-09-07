@@ -103,15 +103,20 @@ services:
 ## Logs
 
 - Install `composer require symfony/monolog-bundle`
-- Add to `monoglog.yaml`
+- Add to `monolog.yaml` + `$logger: '@monolog.logger.api_log_channel'` in `bind` section within `services.yaml`
 ```
 api_log:
     type: stream
     path: "%kernel.logs_dir%/api.log"
     level: info
     channels: [ "api_log_channel" ]
+api_log_db:
+    type: service
+    id: monolog.db_handler
+    channels: [ "api_log_channel" ]
 ```
-- `onKernelTerminate` event subscriber to log information
+- `src/EventSubscriber/LoggerSubscriber.php` + `src/Util/MonologDBHandler.php` : Log in file and database
+- For DB logging, need to create `Log` entity / migration and configure `services.yaml`
 
 # Docs
 
@@ -124,6 +129,7 @@ api_log:
 - https://swagger.io/docs/specification/describing-responses/ **Describing Responses**
 - https://swagger.io/docs/specification/describing-request-body/ **Describing Request Body**
 - https://swagger.io/docs/specification/2-0/describing-parameters/ **Describing Parameters**
+- https://nehalist.io/logging-events-to-database-in-symfony/ **Logging events to database in Symfony**
 
 # Tests
 

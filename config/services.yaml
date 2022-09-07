@@ -41,3 +41,7 @@ services:
         decorates: 'api_platform.openapi.factory'
         arguments: [ '@App\OpenApi\OpenApiFactory.inner' ]
         autoconfigure: false
+
+    monolog.db_handler:
+        class: App\Util\MonologDBHandler
+        arguments: [ '@doctrine.orm.entity_manager' ]

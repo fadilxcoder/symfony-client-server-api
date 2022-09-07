@@ -2,6 +2,16 @@ monolog:
     channels:
         - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
         - api_log_channel
+    handlers:
+        api_log:
+            type: stream
+            path: "%kernel.logs_dir%/api.log"
+            level: info
+            channels: [ "api_log_channel" ]
+        api_log_db:
+            type: service
+            id: monolog.db_handler
+            channels: [ "api_log_channel" ]
 
 when@dev:
     monolog:
@@ -23,11 +33,6 @@ when@dev:
                 type: console
                 process_psr_3_messages: false
                 channels: ["!event", "!doctrine", "!console"]
-            api_log:
-                type: stream
-                path: "%kernel.logs_dir%/api.log"
-                level: info
-                channels: [ "api_log_channel" ]
 
 when@test:
     monolog:
@@ -42,11 +47,6 @@ when@test:
                 type: stream
                 path: "%kernel.logs_dir%/%kernel.environment%.log"
                 level: debug
-            api_log:
-                type: stream
-                path: "%kernel.logs_dir%/api.log"
-                level: info
-                channels: [ "api_log_channel" ]
 
 when@prod:
     monolog:
@@ -70,8 +70,3 @@ when@prod:
                 type: stream
                 channels: [deprecation]
                 path: php://stderr
-            api_log:
-                type: stream
-                path: "%kernel.logs_dir%/api.log"
-                level: info
-                channels: [ "api_log_channel" ]
