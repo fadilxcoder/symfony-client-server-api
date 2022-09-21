@@ -14,9 +14,12 @@ class OpenApiFactory implements OpenApiFactoryInterface
      */
     private $decorated;
 
-    public function __construct(OpenApiFactoryInterface $decorated)
+    private $apiMajorVersion;
+
+    public function __construct(OpenApiFactoryInterface $decorated, string $apiMajorVersion)
     {
         $this->decorated = $decorated;
+        $this->apiMajorVersion = $apiMajorVersion;
     }
 
     public function __invoke(array $context = []): OpenApi
@@ -109,7 +112,7 @@ class OpenApiFactory implements OpenApiFactoryInterface
                 )
             )
         );
-        $openApi->getPaths()->addPath('/oauth-client', $pathItem);
+        $openApi->getPaths()->addPath('/'.$this->apiMajorVersion.'/oauth-client', $pathItem);
 
         return $openApi;
     }

@@ -26,7 +26,7 @@ class FreeQuoteController extends AbstractController
     /**
      * @Route(
      *      name="api_free_quote_post",
-     *      path="/api/vehicle/rental-quote/{id}",
+     *      path="/%api_major_version%/api/vehicle/rental-quote/{id}",
      *      methods={"POST"},
      *      defaults={
      *          "_api_resource_class"=Vehicle::class,

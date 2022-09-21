@@ -24,7 +24,7 @@ class OAuthController extends AbstractController
     /**
      * @Route(
      *      name="api_oauth_token",
-     *      path="/oauth-client",
+     *      path="/%api_major_version%/oauth-client",
      *      methods={"POST"},
      * )
      */

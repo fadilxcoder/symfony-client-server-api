@@ -2,7 +2,8 @@
 
 <img src="./app.png"  alt="App"/>
 
-- URL : http://api.symfony.car-rental.local/ AND http://api.symfony.car-rental.local/api
+- URL : http://api.symfony.car-rental.local/v0/
+- Postman **BASE_URL** : http://api.symfony.car-rental.local/v0/
 - Install debugging tools - `composer req symfony/web-profiler-bundle` and `composer require profiler --dev`
 - Apache Pack : `composer require symfony/apache-pack`
 - Maker bundle : `composer require symfony/maker-bundle --dev`
