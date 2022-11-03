@@ -2,11 +2,9 @@
 
 namespace App\Controller\Vehicle;
 
-use ApiPlatform\Core\Exception\InvalidArgumentException;
 use App\ApiResources\Vehicle;
 use App\Dto\FreeQuote;
-use App\Repository\VehiculesRepository;
-use DateTime;
+use App\Util\FreeQuoteCalc;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,11 +14,11 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class FreeQuoteController extends AbstractController
 {
-    private $vehiculesRepository;
+    private $freeQuoteCalc;
 
-    public function __construct(VehiculesRepository $vehiculesRepository)
+    public function __construct(FreeQuoteCalc $freeQuoteCalc)
     {
-        $this->vehiculesRepository = $vehiculesRepository;
+        $this->freeQuoteCalc = $freeQuoteCalc;
     }
 
     /**
@@ -37,7 +35,7 @@ class FreeQuoteController extends AbstractController
     public function __invoke(Request $request, $id, SerializerInterface $serializer): JsonResponse
     {
         $freeQuoteObj = $serializer->deserialize($request->getContent(), FreeQuote::class, 'json');
-        $freeQuoteResponse = $this->getFreeQuote($freeQuoteObj, (int) $id);
+        $freeQuoteResponse = $this->freeQuoteCalc->getFreeQuote($freeQuoteObj, (int) $id);
 
         if ($freeQuoteResponse) {
             return $this->json([
@@ -49,30 +47,5 @@ class FreeQuoteController extends AbstractController
                 'remaining' => $freeQuoteResponse['remaining'],
             ], Response::HTTP_OK);
         }
-    }
-
-    private function getFreeQuote(FreeQuote $freeQuote, int $id): array
-    {
-        $vehicle = $this->vehiculesRepository->findById($id);
-        if (!$vehicle) {
-            throw new InvalidArgumentException('id is invalid !');
-        }
-
-        $pickUpDate = new DateTime($freeQuote->getPickUpDate());
-        $dropOffDate = new DateTime($freeQuote->getDropOffDate());
-        $dateDiffDays = $dropOffDate->diff($pickUpDate)->days;
-        $price = (int) $vehicle['price'];
-        $total = $price * $dateDiffDays;
-        $amountToPay = (1 / 4) * $total;
-        $remaining = $total - $amountToPay;
-
-        return [
-            'days' => $dateDiffDays,
-            'condition' => 'Pay 25% of total upon booking',
-            'price_per_day' => $price,
-            'total' => $total,
-            'pay' => $amountToPay,
-            'remaining' => $remaining,
-        ];
     }
 }

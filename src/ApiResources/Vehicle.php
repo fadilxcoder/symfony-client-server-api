@@ -96,7 +96,75 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *          },
  *          "post_book_now"={
  *              "path"="vehicle/book-now/{id}",
- *              "method"="POST"
+ *              "route_name"="api_booking_post",
+ *              "method"="POST",
+ *              "status"=200,
+ *              "openapi_context"={
+ *                  "summary"="Booking for renting a vehicle.",
+ *                  "description"="Booking for renting a vehicle for a period of time.",
+ *                  "parameters"={
+ *                      {
+ *                          "name"="id",
+ *                          "in"="path",
+ *                          "description"="Vehicle identifier",
+ *                          "example"="1",
+ *                          "required"=true,
+ *                          "schema"={
+ *                              "type"="integer"
+ *                          }
+ *                      }
+ *                  },
+ *                  "requestBody": {
+ *                      "content": {
+ *                          "application/json": {
+ *                              "schema": {
+ *                                  "type": "object",
+ *                                  "properties": {
+ *                                      "pick_up_date": {"type": "string", "example": "2021-05-24", "format": "date"},
+ *                                      "pick_up_time": {"type": "string", "example": "05:00", "enum": {
+ *                                              "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00",  "20:00", "21:00"
+ *                                          }
+ *                                      },
+ *                                      "pick_up_location": {"type": "string", "example": "Airport of mauritius"},
+ *                                      "drop_off_date": {"type": "string", "example": "2021-11-27", "format": "date"},
+ *                                      "drop_off_time": {"type": "string", "example": "14:00", "enum": {
+ *                                              "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00",  "20:00", "21:00"
+ *                                          }
+ *                                      },
+ *                                      "drop_off_location": {"type": "string", "example": "Hotels, AirBnB, ..."},
+ *                                      "full_name": {"type": "string", "example": "Mr John Doe"},
+ *                                      "email": {"type": "string", "example": "johndoe@email.com"},
+ *                                      "country": {"type": "string", "example": "Sierra Leone"},
+ *                                      "phone_number": {"type": "string", "example": "122 5555 5555"},
+ *                                      "other_details": {"type": "string", "example": "Any other details that might e helpful to us"},
+ *                                  },
+ *                              },
+ *                          },
+ *                      },
+ *                  },
+ *                  "responses": {
+ *                      "200": {
+ *                          "description": "Description",
+ *                          "content": {
+ *                              "application/json": {
+ *                                  "schema": {
+ *                                      "type": "object",
+ *                                      "properties": {
+ *                                          "days": {"type": "integer", "example": 10},
+ *                                          "condition": {"type": "string", "example": "Pay 25% of total upon booking"},
+ *                                          "price_per_day": {"type": "integer", "example": 28},
+ *                                          "total": {"type": "integer", "example": 280},
+ *                                          "pay": {"type": "integer", "example": 70},
+ *                                          "remaining": {"type": "integer", "example": 210},
+ *                                          "email": {"type": "string", "example": "johndoe@email.com"},
+ *                                          "reference_id": {"type": "string", "example": "46546fcsd4c-sfd65sd4f6s5f4sd6-5fsd46fs4d6f4"}
+ *                                      }
+ *                                  },
+ *                              },
+ *                          },
+ *                      },
+ *                  },
+ *              }
  *          }
  *     },
  *     itemOperations={

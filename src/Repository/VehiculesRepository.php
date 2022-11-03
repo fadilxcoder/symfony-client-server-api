@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\ValueObject\Booking;
 use Doctrine\ORM\EntityManagerInterface;
 
 class VehiculesRepository
@@ -45,5 +46,56 @@ class VehiculesRepository
         ]);
 
         return $result->fetchAssociative();
+    }
+
+    public function persist(Booking $booking)
+    {
+        $cnx = $this->entityManager->getConnection();
+        $sql = '
+            INSERT INTO `booking` (
+                `ref_number`, 
+                `ip_addr`, 
+                `fname`, 
+                `email`, 
+                `country`, 
+                `phone`, 
+                `total`, 
+                `pay_now`, 
+                `pay_later`, 
+                `pick_up_loc`, 
+                `date_pickup`,
+                `time_pickup`, 
+                `date_drop_off`, 
+                `drop_off_location`, 
+                `drop_off_time`, 
+                `vehicle_id`, 
+                `vehicle_image`, 
+                `other_details`
+           ) VALUES (
+                :ref_number, 
+                :ip_addr, 
+                :fname, 
+                :email, 
+                :country, 
+                :phone, 
+                :total, 
+                :pay_now, 
+                :pay_later, 
+                :pick_up_loc, 
+                :date_pickup, 
+                :time_pickup, 
+                :date_drop_off, 
+                :drop_off_location, 
+                :drop_off_time, 
+                :vehicle_id, 
+                :vehicle_image,
+                :other_details
+            );
+        ';
+
+        $stmt = $cnx->prepare($sql);
+        $result = $stmt->executeQuery($booking->toState());
+
+        return $result;
     }
 }
