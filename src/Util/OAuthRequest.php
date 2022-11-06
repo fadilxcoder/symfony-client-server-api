@@ -6,13 +6,22 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class OAuthRequest
 {
-    public function request(HttpClientInterface $httpClient, string $method, string $requestUri, array $queryParams = [])
-    {
-        return $httpClient->request($method, $requestUri, $this->options($method, $requestUri, $queryParams));
+    public function request(
+        HttpClientInterface $httpClient,
+        string $method,
+        string $requestUri,
+        array $queryParams = [],
+        array $jsonParams = []
+    ) {
+        return $httpClient->request($method, $requestUri, $this->options($method, $requestUri, $queryParams, $jsonParams));
     }
 
-    private function options(string $method, string $requestUri, array $queryParams = [])
-    {
+    private function options(
+        string $method,
+        string $requestUri,
+        array $queryParams = [],
+        array $jsonParams = []
+    ) {
         // its only proof of concept, so lets begin hard coding!
         $consumerKey = 'ck_327110a012b6deaef384c12e93f9e37604a0d9db'; // we put this into query params
         $consumerSecret = 'cs_6d2006958a04093b052ac8851967ad73a976197d'; // we use this in signature generator
@@ -32,6 +41,7 @@ class OAuthRequest
 
         return [
             'query' => $queryParams,
+            'json' => $jsonParams,
         ];
     }
 
