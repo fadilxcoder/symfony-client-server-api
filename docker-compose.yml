@@ -1,27 +1,30 @@
 version: '3.4'
 
 services:
-  php-fpm:
-    container_name: cra_php_fpm
-    build:
-      context: ./docker/php-fpm
-    volumes:
-      - ./app:/var/www/html
-
-  nginx:
-    container_name: cra_nginx
-    build:
-      context: ./docker/nginx
-    volumes:
-      - ./app:/var/www/html
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./docker/nginx/sites/:/etc/nginx/sites-available
-      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
-    ports:
-      - "8088:80"
-      - "8084:443"
-    depends_on:
-      - php-fpm
+#
+# * Using system in-built PHP/Apache
+#
+#  php-fpm:
+#    container_name: cra_php_fpm
+#    build:
+#      context: ./docker/php-fpm
+#    volumes:
+#      - ./app:/var/www/html
+#
+#  nginx:
+#    container_name: cra_nginx
+#    build:
+#      context: ./docker/nginx
+#    volumes:
+#      - ./app:/var/www/html
+#      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+#      - ./docker/nginx/sites/:/etc/nginx/sites-available
+#      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+#    ports:
+#      - "8088:80"
+#      - "8084:443"
+#    depends_on:
+#      - php-fpm
 
   database:
     container_name: cra_database
