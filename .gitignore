@@ -1,4 +1,7 @@
 php_error_log
 .idea/
-docker/elasticsearch/
-docker/postgres-data/
+docker/esx
+docker/database/postgres-data/
+/docker/esx/
+/docker/esx/data/
+/docker/esx/logs/

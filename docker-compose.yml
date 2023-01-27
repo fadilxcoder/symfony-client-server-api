@@ -35,7 +35,7 @@ services:
         POSTGRES_USER: 'user'
         POSTGRES_DB: 'car_rental'
     volumes:
-        - ./docker/postgres-data:/var/lib/postgresql/data
+        - ./docker/database/postgres-data:/var/lib/postgresql/data
         - ./docker/database/db.sql:/docker-entrypoint-initdb.d/db.sql
     ports:
         - '5454:5432'
@@ -61,8 +61,8 @@ services:
           - "9292:9200"
           - "9393:9300"
       volumes:
-          - ./docker/elasticsearch/data:/usr/share/elasticsearch/data
-          - ./docker/elasticsearch/logs:/usr/share/elasticsearch/logs
+          - ./docker/esx/data:/usr/share/elasticsearch/data
+          - ./docker/esx/logs:/usr/share/elasticsearch/logs
 
   mailcatcher:
       container_name: cra_mailcatcher
