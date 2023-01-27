@@ -45,3 +45,7 @@ services:
     monolog.db_handler:
         class: App\Util\MonologDBHandler
         arguments: [ '@doctrine.orm.entity_manager' ]
+
+    App\Services\GeneratorOpenAIService:
+        arguments:
+            $key: '%env(OPENAI_API_KEY)%'
