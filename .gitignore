@@ -1,2 +1,4 @@
 php_error_log
 .idea/
+docker/elasticsearch/
+docker/postgres-data/
