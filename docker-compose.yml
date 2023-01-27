@@ -61,8 +61,8 @@ services:
           - "9292:9200"
           - "9393:9300"
       volumes:
-          - ./docker/esx/data:/usr/share/elasticsearch/data
-          - ./docker/esx/logs:/usr/share/elasticsearch/logs
+          - ./docker/elasticsearch/cluster/data:/usr/share/elasticsearch/data
+          - ./docker/elasticsearch/cluster/logs:/usr/share/elasticsearch/logs
 
   mailcatcher:
       container_name: cra_mailcatcher
