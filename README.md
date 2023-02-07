@@ -36,3 +36,10 @@ a1a7bb6b2a00   postgres:15-alpine                                     "docker-en
 - Connect to `cra_php_fpm` and run ` chown -R www-data:www-data ./` due to cache issues + Force remove cache : `rm -rf ./var/cache/dev && rm -rf ./var/cache/de\~/` **OR** `rm -rf ./var/cache/*`
 - Generate token : `php bin/console generate-client-token`
 - Tests : `newman run car-rental-api.postman_collection.json`
+
+
+# Addons.
+<hr>
+<img src="./_docs/how-to-design-secure-web-api.jpg" alt="how-to-design-secure-web-api.jpg"/>
+<hr>
+<img src="./_docs/jwt-structure-detailed.jpg" alt="jwt-structure-detailed.jpg"/>
