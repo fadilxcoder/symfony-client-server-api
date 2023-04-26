@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-#
+
 # * Using system in-built PHP/Apache
 #
 #  php-fpm:
@@ -26,19 +26,19 @@ services:
 #    depends_on:
 #      - php-fpm
 
-  database:
-    container_name: cra_database
-    image: postgres:15-alpine
-    restart: always
-    environment:
-        POSTGRES_PASSWORD: 'admin'
-        POSTGRES_USER: 'user'
-        POSTGRES_DB: 'car_rental'
-    volumes:
-        - ./docker/database/postgres-data:/var/lib/postgresql/data
-        - ./docker/database/db.sql:/docker-entrypoint-initdb.d/db.sql
-    ports:
-        - '5454:5432'
+#   database:
+#     container_name: cra_database
+#     image: postgres:15-alpine
+#     restart: always
+#     environment:
+#         POSTGRES_PASSWORD: 'admin'
+#         POSTGRES_USER: 'user'
+#         POSTGRES_DB: 'car_rental'
+#     volumes:
+#         - ./docker/database/postgres-data:/var/lib/postgresql/data
+#         - ./docker/database/db.sql:/docker-entrypoint-initdb.d/db.sql
+#     ports:
+#         - '5454:5432'
 
   redis:
         container_name: cra_redis

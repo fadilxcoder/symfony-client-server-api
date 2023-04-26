@@ -32,6 +32,7 @@ class LoggerSubscriber implements EventSubscriberInterface
         $this->logger->info('Response output :'.$event->getResponse()->getContent());
         */
 
+        /*
         $this->logger->info(
             $event->getResponse()->headers->get('X-Log-Ref-Id')."\n"
             .'Date-time :'.$time->format('\A\t H:i:s \O\n Y-m-d')."\n"
@@ -42,6 +43,7 @@ class LoggerSubscriber implements EventSubscriberInterface
             .'Response status code :'.$event->getResponse()->getStatusCode()."\n"
             .'Response output :'.$event->getResponse()->getContent()
         );
+        */
     }
 
     public static function getSubscribedEvents()

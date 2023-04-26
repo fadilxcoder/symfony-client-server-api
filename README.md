@@ -1,12 +1,13 @@
 # App
 
+- App can be run without enabling containers - using in-built (Apache / MySQL)
 - http://api.symfony.car-rental.local/ - **App API Swagger GUI**
 - http://127.0.0.1:1080/ - **Mailcatcher**
 
 # Architecture / Configs
 
 - Nginx*
-- PostgreSQL
+- PostgreSQL* (not present in below output)
 - Redis
 - Elasticsearch
 - Mailcatcher
