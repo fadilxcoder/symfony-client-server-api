@@ -25,7 +25,7 @@ class CreateContactController extends AbstractController
     /**
      * @Route(
      *      name="api_contact_post_collection",
-     *      path="/api/contact-us",
+     *      path="/%api_major_version%/api/contact-us",
      *      methods={"POST"},
      *      defaults={
      *          "_api_resource_class"=Contact::class,

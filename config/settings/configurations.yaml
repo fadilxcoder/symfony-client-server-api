@@ -1,4 +1,6 @@
 parameters:
+    api_major_version: '%env(resolve:MAJOR_VERSION)%'
+    api_minor_version: '%env(resolve:MINOR_VERSION)%'
     vehicles_type:
         "small-cars" : 1
         "family-cars" : 2

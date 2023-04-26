@@ -6,7 +6,7 @@ api_platform:
     show_webby: false
     title: 'CAR Rental'
     description: 'FACR Laravel project API gateway'
-    version: '1.0.0'
+    version: '%api_minor_version%'
     swagger:
         versions: [3]
         api_keys:
